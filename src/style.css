@@ -8,15 +8,18 @@
 body {
   margin: 0;
   display: flex;
-  min-width: 280px;
-  min-height: 100vh;
   align-items: center;
   justify-content: center;
   text-align: center;
+  max-width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 .canvasContainer {
   color: red;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -27,5 +30,11 @@ h1 {
 h2 {
   font-size: 2.8em;
   line-height: 1.1;
+}
+
+canvas {
+  width: 90%;
+  height: 400px;
+  background-color: black;
 }
 

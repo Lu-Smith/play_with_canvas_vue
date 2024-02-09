@@ -30,12 +30,12 @@ const updateGame = () => {
     const context = canvasOne.value?.getContext('2d');
 
     if (context && canvasOne.value) {
-            // Clear the canvas
-            context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+        // Clear the canvas
+        context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
 
-            // Draw ground
-            context.fillStyle = '#000';
-            context.fillRect(10, 10, 40, 40);
+        // Draw ground
+        context.fillStyle = '#000';
+        context.fillRect(10, 10, 40, 40);
     }
 }
 
