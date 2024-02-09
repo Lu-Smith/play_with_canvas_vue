@@ -7,8 +7,8 @@ import Footer from './components/Footer.vue';
 <template>
   <h1>Play with Canvas</h1>
   <div class="canvasContainer">
-    <CanvasOne msg="Vite + Vue" />
-    <CanvasTwo msg="Vite + Vue" />
+    <CanvasOne msg="Dots" />
+    <CanvasTwo msg="Stars" />
   </div>
   <Footer />
 </template>
