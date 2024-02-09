@@ -4,11 +4,11 @@ import CanvasTwo from './components/CanvasTwo.vue';
 </script>
 
 <template>
+  <h1>Play with Canvas</h1>
   <div>
-    Hello World
+    <CanvasOne msg="Vite + Vue" />
+    <CanvasTwo msg="Vite + Vue" />
   </div>
-  <CanvasOne msg="Vite + Vue" />
-  <CanvasTwo msg="Vite + Vue" />
 </template>
 
 <style scoped>
