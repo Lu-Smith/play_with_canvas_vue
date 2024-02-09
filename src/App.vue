@@ -5,7 +5,7 @@ import CanvasTwo from './components/CanvasTwo.vue';
 
 <template>
   <h1>Play with Canvas</h1>
-  <div>
+  <div class="canvasContainer">
     <CanvasOne msg="Vite + Vue" />
     <CanvasTwo msg="Vite + Vue" />
   </div>
