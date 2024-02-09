@@ -4,9 +4,18 @@
  </template>
  
  <script setup lang="ts">
- import { ref, onMounted, defineProps } from 'vue';
+ import { ref, onMounted } from 'vue';
+
+ defineProps<{msg: string}>()
  
  const canvasOne = ref<HTMLCanvasElement | null>(null);
+ const particlesArray = ref([]);
+ let hue = 0;
+
+ const mouse = {
+    x: undefined,
+    y: undefined,
+}
  
  const handleKeyDown = (event: KeyboardEvent) => {
      switch (event.key) {
