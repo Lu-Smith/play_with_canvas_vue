@@ -11,12 +11,19 @@ defineProps<{ msg: string }>();
 
 const canvasOne = ref<HTMLCanvasElement | null>(null);
 
-const handleKeyDown = () => {
-
+const handleKeyDown = (event: KeyboardEvent) => {
+    switch (event.key) {
+            case "ArrowUp":
+            if (event.repeat) {
+                return;
+            }
+            break;
+        }
 };
 
-const handleMouseEvent = () => {
-
+const handleMouseEvent = (event: MouseEvent) => {
+    if (event) {
+    }
 };
 
 onMounted(() => {
