@@ -12,7 +12,10 @@
 
  const particlesArray = ref([]);
 
- const mouse = ref({ x: undefined, y: undefined })
+ const x = ref(0);
+ const y = ref(0);
+
+ const mouse = ref({ x, y })
  
  const handleKeyDown = (event: KeyboardEvent) => {
      switch (event.key) {
@@ -24,6 +27,8 @@
  
  const handleMouseEvent = (event: MouseEvent) => {
      if (event) {
+        mouse.value.x = event.x;
+        mouse.value.y = event.y;
          updateGame();
      }
  };
