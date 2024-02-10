@@ -9,6 +9,7 @@
  defineProps<{msg: string}>()
  
  const canvasOne = ref<HTMLCanvasElement | null>(null);
+
  const particlesArray = ref([]);
 
  const mouse = ref({ x: undefined, y: undefined })
@@ -29,6 +30,7 @@
  
  const updateGame = () => {
      const context = canvasOne.value?.getContext('2d');
+
  
      if (context && canvasOne.value) {
          // Clear the canvas
@@ -45,6 +47,10 @@
  onMounted(() => {
      window.addEventListener('keydown', handleKeyDown);
      window.addEventListener('mousedown', handleMouseEvent);
+     if (canvasOne.value) {
+        canvasOne.value.width = window.innerWidth * 0.9;
+        canvasOne.value.height = window.innerHeight * 0.5;
+    }
  });
 
  window.addEventListener('resize', function(){
