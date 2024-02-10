@@ -29,7 +29,7 @@
      if (event) {
         mouse.value.x = event.x;
         mouse.value.y = event.y;
-         updateGame();
+        updateGame();
      }
  };
  
@@ -44,7 +44,7 @@
          // Draw ground
          context.fillStyle = '#fff';
          context.beginPath();
-         context.arc(130, 100, 50, 0, Math.PI * 2);
+         context.arc(mouse.value.x, mouse.value.y, 50, 0, Math.PI * 2);
          context.fill();
      }
  }
