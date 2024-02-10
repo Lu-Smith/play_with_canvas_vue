@@ -36,7 +36,9 @@
  
          // Draw ground
          context.fillStyle = '#fff';
-         context.fillRect(10, 10, 40, 40);
+         context.beginPath();
+         context.arc(130, 100, 50, 0, Math.PI * 2);
+         context.fill();
      }
  }
  
