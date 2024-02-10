@@ -10,8 +10,6 @@
  
  const canvasOne = ref<HTMLCanvasElement | null>(null);
 
- const particlesArray = ref([]);
-
  const x = ref(0);
  const y = ref(0);
 
@@ -27,8 +25,13 @@
  
  const handleMouseEvent = (event: MouseEvent) => {
      if (event) {
-        mouse.value.x = event.x;
-        mouse.value.y = event.y;
+        const canvasRect = canvasOne.value?.getBoundingClientRect();
+        if (canvasRect) {
+            const offsetX = event.clientX - canvasRect.left;
+            const offsetY = event.clientY - canvasRect.top;
+            mouse.value.x = offsetX;
+            mouse.value.y = offsetY;
+        }
         updateGame();
      }
  };
