@@ -12,7 +12,6 @@ body {
   justify-content: center;
   text-align: center;
   max-width: 100vw;
-  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -20,6 +19,23 @@ body {
   color: red;
   width: 100vw;
   overflow-x: hidden;
+
+  canvas {
+    width: 90%;
+    height: 50%;
+    background-color: black;
+  }
+}
+
+.headerContainer {
+  width: 100vw;
+  overflow-x: hidden;
+
+  canvas {
+    width: 100%;
+    height: 8%;
+    background-color: rgb(187, 24, 24);
+  }
 }
 
 h1 {
@@ -32,9 +48,5 @@ h2 {
   line-height: 1.1;
 }
 
-canvas {
-  width: 90%;
-  height: 50%;
-  background-color: black;
-}
+
 

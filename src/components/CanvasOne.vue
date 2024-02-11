@@ -72,8 +72,6 @@
     }
  }
 
-
-
  const handleParticle = () => {
     for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
