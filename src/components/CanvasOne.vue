@@ -20,7 +20,7 @@
 
      if (context && canvasOne.value) {
          // Clear the canvas
-         context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+        //  context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
  
          // Draw ground
          context.fillStyle = '#fff';
