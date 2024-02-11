@@ -14,14 +14,18 @@
  const y = ref(0);
 
  const mouse = ref({ x, y });
+
+ const context = canvasOne.value?.getContext('2d');
+
+ const animate = () => {
+    if (context && canvasOne.value) {
+        // Clear the canvas
+        context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+    }
+ }
  
  const updateGame = () => {
-     const context = canvasOne.value?.getContext('2d');
-
      if (context && canvasOne.value) {
-         // Clear the canvas
-         //  context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
- 
          // Draw ground
          context.fillStyle = '#fff';
          context.beginPath();
