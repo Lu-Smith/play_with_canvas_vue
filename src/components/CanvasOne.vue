@@ -13,19 +13,19 @@
  const x = ref(0);
  const y = ref(0);
 
- const mouse = ref({ x, y })
+ const mouse = ref({ x, y });
  
  const updateGame = () => {
      const context = canvasOne.value?.getContext('2d');
 
      if (context && canvasOne.value) {
          // Clear the canvas
-        //  context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+         //  context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
  
          // Draw ground
          context.fillStyle = '#fff';
          context.beginPath();
-         context.arc(mouse.value.x, mouse.value.y, 50, 0, Math.PI * 2);
+         context.arc(mouse.value.x, mouse.value.y, 30, 0, Math.PI * 2);
          context.fill();
      }
  }
