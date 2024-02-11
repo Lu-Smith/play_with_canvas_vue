@@ -34,16 +34,8 @@
     speedY: number;
 
     constructor(){
-        // this.x = mouse.value.x;
-        // this.y = mouse.value.y;
-        if (canvasOne.value) {
-            this.x = Math.random() * canvasOne.value?.width;
-            this.y = Math.random() * canvasOne.value?.height;
-        } else {
-            this.x = mouse.value.x;
-            this.y = mouse.value.y;
-        }
-
+        this.x = mouse.value.x;
+        this.y = mouse.value.y;
         this.size = Math.random() * 16 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
