@@ -23,7 +23,7 @@
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
         }
-        console.log(context);
+        init();
     }
  };
 
@@ -41,9 +41,11 @@
             this.x = Math.random() * canvasOne.value?.width;
             this.y = Math.random() * canvasOne.value?.height;
         } else {
-            this.x = 0;
-            this.y = 0;
+            this.x = mouse.value.x;
+            this.y = mouse.value.y;
         }
+
+        console.log(this.x);
 
         this.size = Math.random() * 5 + 1;
         this.speedX = Math.random() * 3 - 1.5;
@@ -70,7 +72,7 @@
     }
  }
 
- init();
+
 
  const handleParticle = () => {
     for (let i = 0; i < particleArray.value.length; i++) {
