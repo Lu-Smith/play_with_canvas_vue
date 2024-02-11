@@ -15,8 +15,6 @@
 
  const mouse = ref({ x, y });
 
-
- 
  const updateGame = () => {
     const context = canvasOne.value?.getContext('2d');
      if (context && canvasOne.value) {
@@ -32,34 +30,21 @@
  }
  
  const handleMouseEvent = (event: MouseEvent) => {
-     if (event) {
+    if (event) {
         const canvasRect = canvasOne.value?.getBoundingClientRect();
         if (canvasRect) {
             const offsetX = event.clientX - canvasRect.left;
             const offsetY = event.clientY - canvasRect.top;
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
+            updateGame();
         }
-        updateGame();
-     }
- };
-
- const handleMouseMovement = (event: MouseEvent) => {
-     if (event) {
-        const canvasRect = canvasOne.value?.getBoundingClientRect();
-        if (canvasRect) {
-            const offsetX = event.clientX - canvasRect.left;
-            const offsetY = event.clientY - canvasRect.top;
-            mouse.value.x = offsetX;
-            mouse.value.y = offsetY;
-        }
-        updateGame();
-     }
- };
+    }
+};
  
  onMounted(() => {
-     window.addEventListener('mousedown', handleMouseEvent);
-     window.addEventListener('mousemove', handleMouseMovement);
+    window.addEventListener('mousedown', handleMouseEvent);
+    window.addEventListener('mousemove', handleMouseEvent);
      if (canvasOne.value) {
         canvasOne.value.width = window.innerWidth * 0.9;
         canvasOne.value.height = window.innerHeight * 0.5;
