@@ -31,8 +31,6 @@
     speedY: number;
 
     constructor(){
-        // this.x = mouse.value.x;
-        // this.y = mouse.value.y;
         if (canvasOne.value) {
             this.x = Math.random() * canvasOne.value?.width;
             this.y = Math.random() * canvasOne.value?.height;
@@ -44,8 +42,8 @@
         console.log(this.x);
 
         this.size = Math.random() * 5 + 1;
-        this.speedX = Math.random() * 3 - 1.5;
-        this.speedY = Math.random() * 3 - 1.5;
+        this.speedX = Math.random() * 16 - 1.5;
+        this.speedY = Math.random() * 16 - 1.5;
     };
     update() {
         this.x += this.speedX;
@@ -99,9 +97,17 @@
 
  window.addEventListener('resize', function(){
     if (canvasOne.value) {
-        canvasOne.value.width = window.innerWidth * 0.9;
-        canvasOne.value.height = window.innerHeight * 0.5;
+        canvasOne.value.width = window.innerWidth;
+        canvasOne.value.height = window.innerHeight * 0.08;
     }
  })
  
  </script>
+
+ <style scoped>
+  canvas {
+    width: 100%;
+    height: 8%;
+    background-color: rgb(187, 24, 24);
+  }
+ </style>

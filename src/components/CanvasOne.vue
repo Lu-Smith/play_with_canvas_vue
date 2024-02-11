@@ -109,3 +109,11 @@
  })
  
  </script>
+
+<style scoped>
+  canvas {
+    width: 90%;
+    height: 50%;
+    background-color: black;
+  }
+</style>
