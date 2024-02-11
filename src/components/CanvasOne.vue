@@ -42,12 +42,23 @@
         updateGame();
      }
  };
+
+ const handleMouseMovement = (event: MouseEvent) => {
+     if (event) {
+        const canvasRect = canvasOne.value?.getBoundingClientRect();
+        if (canvasRect) {
+            const offsetX = event.clientX - canvasRect.left;
+            const offsetY = event.clientY - canvasRect.top;
+            mouse.value.x = offsetX;
+            mouse.value.y = offsetY;
+        }
+        updateGame();
+     }
+ };
  
  onMounted(() => {
      window.addEventListener('mousedown', handleMouseEvent);
-     window.addEventListener('mousemove', function(){
-        updateGame()
-     });
+     window.addEventListener('mousemove', handleMouseMovement);
      if (canvasOne.value) {
         canvasOne.value.width = window.innerWidth * 0.9;
         canvasOne.value.height = window.innerHeight * 0.5;
