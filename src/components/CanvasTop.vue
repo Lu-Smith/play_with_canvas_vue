@@ -54,9 +54,7 @@
         //Draw particles
         if (context) {
             context.fillStyle = '#fff';
-            context.beginPath();
-            context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            context.fill();     
+            context.fillRect(this.x, this.y, this.size, this.size);
         }
     };
  }
