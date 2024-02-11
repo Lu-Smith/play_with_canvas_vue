@@ -45,6 +45,9 @@
  
  onMounted(() => {
      window.addEventListener('mousedown', handleMouseEvent);
+     window.addEventListener('mousemove', function(){
+        updateGame()
+     });
      if (canvasOne.value) {
         canvasOne.value.width = window.innerWidth * 0.9;
         canvasOne.value.height = window.innerHeight * 0.5;
