@@ -18,8 +18,8 @@
             const offsetY = event.clientY - canvasRect.top;
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
+            init();
         }
-        init();
     }
  };
 
@@ -39,8 +39,6 @@
             this.y = mouse.value.y;
         }
 
-        console.log(this.x);
-
         this.size = Math.random() * 5 + 1;
         this.speedX = Math.random() * 16 - 1.5;
         this.speedY = Math.random() * 16 - 1.5;
@@ -48,6 +46,9 @@
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
+        if ( this.size > 0.2) {
+            this.size -= 0.1
+        }
     };
     draw() {
         //Draw particles
@@ -101,7 +102,6 @@
         canvasOne.value.height = window.innerHeight * 0.08;
     }
  })
- 
  </script>
 
  <style scoped>
