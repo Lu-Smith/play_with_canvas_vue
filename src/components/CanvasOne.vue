@@ -9,26 +9,64 @@
  defineProps<{msg: string}>()
  
  const canvasOne = ref<HTMLCanvasElement | null>(null);
+ const particleArray = ref<Particle[]>([]);
 
- const x = ref(0);
- const y = ref(0);
+ const mouse = ref({ x: 0, y: 0 });
 
- const mouse = ref({ x, y });
+ class Particle {
+    x: number;
+    y: number;
+    size: number;
+    speedX: number;
+    speedY: number;
 
- const updateGame = () => {
+    constructor(){
+        // this.x = mouse.value.x;
+        // this.y = mouse.value.y;
+        if (canvasOne.value) {
+            this.x = Math.random() * canvasOne.value?.width;
+            this.y = Math.random() * canvasOne.value?.height;
+        } else {
+            this.x = 0;
+            this.y = 0;
+        }
+
+        this.size = Math.random() * 5 + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+ }
+
+ function init() {
+    for ( let i = 0; i < 100; i++) {
+        particleArray.value.push(new Particle());
+    }
+ }
+
+ const updateDraw = () => {
     const context = canvasOne.value?.getContext('2d');
      if (context && canvasOne.value) {
+        init();
         // Clear the canvas
         context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
-
-         // Draw ground
-         context.fillStyle = '#fff';
-         context.beginPath();
-         context.arc(mouse.value.x, mouse.value.y, 30, 0, Math.PI * 2);
-         context.fill();
-     }
+        for (const particle of particleArray.value) {
+            context.fillStyle = '#fff';
+            context.beginPath();
+            context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            context.fill();
+        }
+        }
  }
+
  
+
+ 
+ console.log(canvasOne.value);
+
  const handleMouseEvent = (event: MouseEvent) => {
     if (event) {
         const canvasRect = canvasOne.value?.getBoundingClientRect();
@@ -37,8 +75,8 @@
             const offsetY = event.clientY - canvasRect.top;
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
-            updateGame();
         }
+        updateDraw();
     }
 };
  
