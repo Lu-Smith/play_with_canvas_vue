@@ -9,8 +9,8 @@
  defineProps<{msg: string}>()
  
  const canvasOne = ref<HTMLCanvasElement | null>(null);
+ const context = canvasOne.value?.getContext('2d');
  const particleArray = ref<Particle[]>([]);
-
  const mouse = ref({ x: 0, y: 0 });
 
  class Particle {
@@ -34,11 +34,20 @@
         this.size = Math.random() * 5 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
-    }
+    };
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
-    }
+    };
+    draw() {
+        //Draw particles
+        if (context) {
+            context.fillStyle = '#fff';
+            context.beginPath();
+            context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            context.fill();     
+        }
+    };
  }
 
  function init() {
@@ -47,25 +56,25 @@
     }
  }
 
- const updateDraw = () => {
-    const context = canvasOne.value?.getContext('2d');
-     if (context && canvasOne.value) {
-        init();
-        // Clear the canvas
-        context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
-        for (const particle of particleArray.value) {
-            context.fillStyle = '#fff';
-            context.beginPath();
-            context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            context.fill();
-        }
-        }
+ init();
+
+ const handleParticle = () => {
+    for (let i = 0; i < particleArray.value.length; i++) {
+        particleArray.value[i].update();
+        particleArray.value[i].draw();
+    }
  }
 
- 
+ const animate = () => {
+    if (context && canvasOne.value) {
+            // Clear the canvas
+            context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+    }
+    handleParticle();
+    requestAnimationFrame(animate);
+ }
 
- 
- console.log(canvasOne.value);
+ animate();
 
  const handleMouseEvent = (event: MouseEvent) => {
     if (event) {
@@ -76,7 +85,6 @@
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
         }
-        updateDraw();
     }
 };
  
