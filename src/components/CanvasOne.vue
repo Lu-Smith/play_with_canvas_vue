@@ -9,9 +9,23 @@
  defineProps<{msg: string}>()
  
  const canvasOne = ref<HTMLCanvasElement | null>(null);
- const context = canvasOne.value?.getContext('2d');
+ let context: CanvasRenderingContext2D | null = null;
  const particleArray = ref<Particle[]>([]);
  const mouse = ref({ x: 0, y: 0 });
+
+
+ const handleMouseEvent = (event: MouseEvent) => {
+    if (event) {
+        const canvasRect = canvasOne.value?.getBoundingClientRect();
+        if (canvasRect) {
+            const offsetX = event.clientX - canvasRect.left;
+            const offsetY = event.clientY - canvasRect.top;
+            mouse.value.x = offsetX;
+            mouse.value.y = offsetY;
+        }
+        console.log(context);
+    }
+ };
 
  class Particle {
     x: number;
@@ -67,8 +81,8 @@
 
  const animate = () => {
     if (context && canvasOne.value) {
-            // Clear the canvas
-            context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+        // Clear the canvas
+        context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
     }
     handleParticle();
     requestAnimationFrame(animate);
@@ -76,25 +90,15 @@
 
  animate();
 
- const handleMouseEvent = (event: MouseEvent) => {
-    if (event) {
-        const canvasRect = canvasOne.value?.getBoundingClientRect();
-        if (canvasRect) {
-            const offsetX = event.clientX - canvasRect.left;
-            const offsetY = event.clientY - canvasRect.top;
-            mouse.value.x = offsetX;
-            mouse.value.y = offsetY;
-        }
-    }
-};
- 
  onMounted(() => {
     window.addEventListener('mousedown', handleMouseEvent);
     window.addEventListener('mousemove', handleMouseEvent);
      if (canvasOne.value) {
         canvasOne.value.width = window.innerWidth * 0.9;
         canvasOne.value.height = window.innerHeight * 0.5;
+        context = canvasOne.value?.getContext('2d');
     }
+
  });
 
  window.addEventListener('resize', function(){
