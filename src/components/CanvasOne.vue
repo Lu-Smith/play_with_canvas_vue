@@ -23,6 +23,7 @@
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
         }
+        particleArray.value.push( new Particle());
     }
  };
 
@@ -59,14 +60,14 @@
     };
  }
 
- function init() {
-    for ( let i = 0; i < 100; i++) {
-        particleArray.value.push(new Particle());
-    }
- }
+//  function init() {
+//     for ( let i = 0; i < 100; i++) {
+//         particleArray.value.push(new Particle());
+//     }
+//  }
 
- init();
- console.log(particleArray.value)
+//  init();
+//  console.log(particleArray.value)
 
  const handleParticle = () => {
     for (let i = 0; i < particleArray.value.length; i++) {
