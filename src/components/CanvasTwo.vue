@@ -60,15 +60,6 @@
     };
  }
 
-//  function init() {
-//     for ( let i = 0; i < 100; i++) {
-//         particleArray.value.push(new Particle());
-//     }
-//  }
-
-//  init();
-//  console.log(particleArray.value)
-
  const handleParticle = () => {
     for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
