@@ -23,7 +23,9 @@
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
         }
-        particleArray.value.push( new Particle());
+        for ( let i = 0; i < 10; i++) {
+            particleArray.value.push( new Particle());
+        }
     }
  };
 
