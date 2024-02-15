@@ -23,7 +23,7 @@
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
         }
-        for ( let i = 0; i < 15; i++) {
+        for ( let i = 0; i < 50; i++) {
             particleArray.value.push( new Particle());
         }
     }
@@ -62,15 +62,6 @@
     };
  }
 
-//  function init() {
-//     for ( let i = 0; i < 100; i++) {
-//         particleArray.value.push(new Particle());
-//     }
-//  }
-
-//  init();
-//  console.log(particleArray.value)
-
  const handleParticle = () => {
     for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
@@ -86,7 +77,9 @@
  const animate = () => {
     if (context && canvasOne.value) {
         // Clear the canvas
-        context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+        // context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+        context.fillStyle = 'rgba(0, 0, 0, 0.5)';
+        context.fillRect(0, 0, canvasOne.value.width, canvasOne.value.height);
     }
     handleParticle();
     requestAnimationFrame(animate);
