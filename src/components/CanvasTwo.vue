@@ -52,10 +52,19 @@
     draw() {
         //Draw particles
         if (context) {
-            context.fillStyle = '#fff';
+            context.fillStyle = '#fff'; 
+            context.strokeStyle = '#ffc93c'; 
+            context.lineWidth = 2;
             context.beginPath();
             context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            context.fill();     
+            context.fill(); 
+            context.stroke();   
+
+            context.strokeStyle = '#ffc93c'; 
+            context.lineWidth = 4;
+            context.beginPath();
+            context.arc(this.x, this.y, this.size + 8, 0, Math.PI * 2);
+            context.stroke(); 
         }
     };
  }
