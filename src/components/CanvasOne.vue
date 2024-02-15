@@ -23,7 +23,7 @@
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
         }
-        for ( let i = 0; i < 10; i++) {
+        for ( let i = 0; i < 15; i++) {
             particleArray.value.push( new Particle());
         }
     }
@@ -39,7 +39,7 @@
     constructor(){
         this.x = mouse.value.x;
         this.y = mouse.value.y;
-        this.size = Math.random() * 16 + 1;
+        this.size = Math.random() * 6 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
     };
