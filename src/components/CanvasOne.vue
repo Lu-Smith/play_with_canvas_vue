@@ -1,12 +1,9 @@
 <template>
-    <h2>{{ msg }}</h2>
     <canvas ref="canvasOne"></canvas>
  </template>
  
  <script setup lang="ts">
  import { ref, onMounted } from 'vue';
-
- defineProps<{msg: string}>()
  
  const canvasOne = ref<HTMLCanvasElement | null>(null);
  let context: CanvasRenderingContext2D | null = null;
