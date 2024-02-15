@@ -9,6 +9,7 @@
  let context: CanvasRenderingContext2D | null = null;
  const particleArray = ref<Particle[]>([]);
  const mouse = ref({ x: 150, y: 150 });
+ const hue = ref(0);
 
 
  const handleMouseEvent = (event: MouseEvent) => {
@@ -20,7 +21,7 @@
             mouse.value.x = offsetX;
             mouse.value.y = offsetY;
         }
-        for ( let i = 0; i < 50; i++) {
+        for ( let i = 0; i < 10; i++) {
             particleArray.value.push( new Particle());
         }
     }
@@ -36,7 +37,7 @@
     constructor(){
         this.x = mouse.value.x;
         this.y = mouse.value.y;
-        this.size = Math.random() * 6 + 1;
+        this.size = Math.random() * 12 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
     };
@@ -51,7 +52,7 @@
     draw() {
         //Draw particles
         if (context) {
-            context.fillStyle = '#fff';
+            context.fillStyle = 'hsl(' + hue.value + ', 100%, 50%)';
             context.beginPath();
             context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             context.fill();     
@@ -75,14 +76,15 @@
     if (context && canvasOne.value) {
         // Clear the canvas
         // context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
-        context.fillStyle = 'rgba(0, 0, 0, 0.5)';
+        context.fillStyle = 'rgba(0, 0, 0, 0.2)';
         context.fillRect(0, 0, canvasOne.value.width, canvasOne.value.height);
     }
     handleParticle();
+    hue.value++
     requestAnimationFrame(animate);
  }
 
- animate();
+
 
  onMounted(() => {
     window.addEventListener('mousedown', handleMouseEvent);
@@ -101,7 +103,8 @@
         canvasOne.value.height = window.innerHeight * 0.5;
     }
  })
- 
+
+ animate();
  </script>
 
 <style scoped>
