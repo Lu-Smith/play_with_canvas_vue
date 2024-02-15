@@ -13,10 +13,10 @@ import Footer from './components/Footer.vue';
   </div>
   <h1>Play with Canvas</h1>
   <div class="canvasContainer">
-    <CanvasOne msg="Dots" />
-    <CanvasTwo msg="White Stars" />
-    <CanvasThree msg="Dots" />
-    <CanvasFour msg="Stars" />
+    <CanvasOne />
+    <CanvasTwo />
+    <CanvasThree />
+    <CanvasFour />
   </div>
   <Footer />
 </template>
