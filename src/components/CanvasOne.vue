@@ -61,6 +61,10 @@
  }
 
  const handleParticle = () => {
+    if (context && canvasOne.value) {
+        context.fillStyle = 'rgba(0, 0, 0, 0.2)';
+        context.fillRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+    }
     for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
         particleArray.value[i].draw();
@@ -73,18 +77,16 @@
  }
 
  const animate = () => {
-    if (context && canvasOne.value) {
+    // if (context && canvasOne.value) {
         // Clear the canvas
         // context.clearRect(0, 0, canvasOne.value.width, canvasOne.value.height);
-        context.fillStyle = 'rgba(0, 0, 0, 0.2)';
-        context.fillRect(0, 0, canvasOne.value.width, canvasOne.value.height);
-    }
+    //     context.fillStyle = 'rgba(0, 0, 0, 0.2)';
+    //     context.fillRect(0, 0, canvasOne.value.width, canvasOne.value.height);
+    // }
     handleParticle();
     hue.value++
     requestAnimationFrame(animate);
  }
-
-
 
  onMounted(() => {
     window.addEventListener('mousedown', handleMouseEvent);
