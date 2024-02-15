@@ -1,0 +1,3 @@
+<template>
+    Canvas Four
+</template>
