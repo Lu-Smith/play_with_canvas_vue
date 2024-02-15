@@ -2,6 +2,8 @@
 import CanvasOne from './components/CanvasOne.vue';
 import CanvasTop from './components/CanvasTop.vue';
 import CanvasTwo from './components/CanvasTwo.vue';
+import CanvasThree from './components/CanvasThree.vue';
+import CanvasFour from './components/CanvasFour.vue';
 import Footer from './components/Footer.vue';
 </script>
 
@@ -12,7 +14,9 @@ import Footer from './components/Footer.vue';
   <h1>Play with Canvas</h1>
   <div class="canvasContainer">
     <CanvasOne msg="Dots" />
-    <CanvasTwo msg="Stars" />
+    <CanvasTwo msg="White Stars" />
+    <CanvasThree msg="Dots" />
+    <CanvasFour msg="Stars" />
   </div>
   <Footer />
 </template>
