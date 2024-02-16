@@ -54,17 +54,17 @@
             const numberOfPoints = 5;
             const innerRadius = this.size / 2;
             const outerRadius = this.size;
-            const rotation = ref(Math.PI / 2 * 3);
+            let rotation = Math.PI / 2 * 3;
             const angleIncrement = Math.PI / numberOfPoints;
             
             context.beginPath();
-            context.moveTo(this.x + Math.cos(rotation.value) * outerRadius, this.y + Math.sin(rotation.value) * outerRadius);
+            context.moveTo(this.x + Math.cos(rotation) * outerRadius, this.y + Math.sin(rotation) * outerRadius);
 
             for (let i = 0; i < numberOfPoints; i++) {
-                rotation.value += angleIncrement;
-                context.lineTo(this.x + Math.cos(rotation.value) * outerRadius, this.y + Math.sin(rotation.value) * outerRadius);
-                rotation.value += angleIncrement;
-                context.lineTo(this.x + Math.cos(rotation.value) * innerRadius, this.y + Math.sin(rotation.value) * innerRadius);
+                rotation += angleIncrement;
+                context.lineTo(this.x + Math.cos(rotation) * outerRadius, this.y + Math.sin(rotation) * outerRadius);
+                rotation += angleIncrement;
+                context.lineTo(this.x + Math.cos(rotation) * innerRadius, this.y + Math.sin(rotation) * innerRadius);
             }
             
             context.closePath();
