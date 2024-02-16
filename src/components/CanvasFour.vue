@@ -11,19 +11,29 @@
  const mouse = ref({ x: 150, y: 150 });
  const hue = ref(0);
 
+ const handleInputEvent = (event: MouseEvent | TouchEvent) => {
+    let offsetX, offsetY;
+    if ('touches' in event) {
+        const touch = event.touches[0];
+        offsetX = touch.clientX;
+        offsetY = touch.clientY;
+    } else {
+        offsetX = (event as MouseEvent).clientX;
+        offsetY = (event as MouseEvent).clientY;
+    }
 
- const handleMouseEvent = (event: MouseEvent) => {
-    if (event) {
-        const canvasRect = canvasFour.value?.getBoundingClientRect();
-        if (canvasRect) {
-            const offsetX = event.clientX - canvasRect.left;
-            const offsetY = event.clientY - canvasRect.top;
-            mouse.value.x = offsetX;
-            mouse.value.y = offsetY;
-        }
-        for ( let i = 0; i < 10; i++) {
-            particleArray.value.push( new Particle());
-        }
+    if (canvasFour.value) {
+        const canvasRect = canvasFour.value.getBoundingClientRect();
+        const scaleX = canvasFour.value.width / canvasRect.width;
+        const scaleY = canvasFour.value.height / canvasRect.height;
+        const canvasX = (offsetX - canvasRect.left) * scaleX;
+        const canvasY = (offsetY - canvasRect.top) * scaleY;
+        mouse.value.x = canvasX;
+        mouse.value.y = canvasY;
+    }
+
+    for (let i = 0; i < 10; i++) {
+        particleArray.value.push(new Particle());
     }
  };
 
@@ -88,8 +98,10 @@
  }
 
  onMounted(() => {
-    window.addEventListener('mousedown', handleMouseEvent);
-    window.addEventListener('mousemove', handleMouseEvent);
+    window.addEventListener('mousedown', handleInputEvent);
+    window.addEventListener('mousemove', handleInputEvent);
+    window.addEventListener('touchstart', handleInputEvent);
+    window.addEventListener('touchmove', handleInputEvent);
      if (canvasFour.value) {
         canvasFour.value.width = window.innerWidth * 0.9;
         canvasFour.value.height = window.innerHeight * 0.5;
