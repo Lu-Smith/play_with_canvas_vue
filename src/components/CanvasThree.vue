@@ -32,7 +32,7 @@
         mouse.value.y = canvasY;
     }
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         particleArray.value.push(new Particle());
     }
  };
@@ -47,7 +47,7 @@
     constructor(){
         this.x = mouse.value.x;
         this.y = mouse.value.y;
-        this.size = Math.random() * 18 + 1;
+        this.size = Math.random() * 23 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
     };
