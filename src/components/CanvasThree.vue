@@ -51,10 +51,26 @@
     draw() {
         //Draw particles
         if (context) {
-            context.fillStyle = '#fff';
+            const numberOfPoints = 5;
+            const innerRadius = this.size / 2;
+            const outerRadius = this.size;
+            const rotation = ref(Math.PI / 2 * 3);
+            const angleIncrement = Math.PI / numberOfPoints;
+            
             context.beginPath();
-            context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            context.fill();     
+            context.moveTo(this.x + Math.cos(rotation.value) * outerRadius, this.y + Math.sin(rotation.value) * outerRadius);
+
+            for (let i = 0; i < numberOfPoints; i++) {
+                rotation.value += angleIncrement;
+                context.lineTo(this.x + Math.cos(rotation.value) * outerRadius, this.y + Math.sin(rotation.value) * outerRadius);
+                rotation.value += angleIncrement;
+                context.lineTo(this.x + Math.cos(rotation.value) * innerRadius, this.y + Math.sin(rotation.value) * innerRadius);
+            }
+            
+            context.closePath();
+            context.lineWidth = 2;
+            context.strokeStyle = '#fff';
+            context.stroke();    
         }
     };
  }
