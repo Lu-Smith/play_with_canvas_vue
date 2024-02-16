@@ -110,6 +110,6 @@
   canvas {
     width: 100%;
     height: 8%;
-    background-color: rgb(187, 24, 24);
+    background: #2c5d63;
   }
  </style>
