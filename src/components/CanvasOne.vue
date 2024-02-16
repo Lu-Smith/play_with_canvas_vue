@@ -66,14 +66,21 @@
     for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
         particleArray.value[i].draw();
+
+        for (let j = i; j < particleArray.value.length; j++ ) {
+            const dx = particleArray.value[i].x - particleArray.value[j].x;
+            const dy = particleArray.value[i].y - particleArray.value[j].y;
+            const distance  = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 100 && context) {
+                context.beginPath();
+                context.moveTo();
+            }
+        }
+
         if (particleArray.value[i].size <= 0.3) {
             particleArray.value.splice(i, 1);
             console.log(particleArray.value.length);
             i--;
-        }
-        for (let j = i; j < particleArray.value.length; j++ ) {
-            const dx = particleArray.value[i].x - particleArray.value[j].x;
-            const dy = particleArray.value[i].y - particleArray.value[j].y;
         }
     }
  }
