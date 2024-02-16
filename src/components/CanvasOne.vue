@@ -74,6 +74,7 @@
             if (distance < 100 && context) {
                 context.beginPath();
                 context.strokeStyle = particleArray.value[i].color;
+                context.lineWidth = 0.5;
                 context.moveTo(particleArray.value[i].x, particleArray.value[i].y);
                 context.lineTo(particleArray.value[j].x, particleArray.value[j].y);
                 context.stroke();
