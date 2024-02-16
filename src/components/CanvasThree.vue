@@ -36,7 +36,7 @@
     constructor(){
         this.x = mouse.value.x;
         this.y = mouse.value.y;
-        this.size = Math.random() * 12 + 1;
+        this.size = Math.random() * 18 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
     };
@@ -54,11 +54,11 @@
             const numberOfPoints = 5;
             const innerRadius = this.size / 2;
             const outerRadius = this.size;
-            let rotation = Math.PI / 2 * 3;
+            let rotation = Math.PI / 2 * 3
             const angleIncrement = Math.PI / numberOfPoints;
             
             context.beginPath();
-            context.moveTo(this.x + Math.cos(rotation) * outerRadius, this.y + Math.sin(rotation) * outerRadius);
+            context.moveTo(this.x + Math.cos(rotation) * outerRadius, this.y + Math.sin(rotation) * outerRadius * 0.5);
 
             for (let i = 0; i < numberOfPoints; i++) {
                 rotation += angleIncrement;
