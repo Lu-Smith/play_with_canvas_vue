@@ -11,18 +11,29 @@
  const mouse = ref({ x: 150, y: 150 });
 
 
- const handleMouseEvent = (event: MouseEvent) => {
-    if (event) {
-        const canvasRect = canvasThree.value?.getBoundingClientRect();
-        if (canvasRect) {
-            const offsetX = event.clientX - canvasRect.left;
-            const offsetY = event.clientY - canvasRect.top;
-            mouse.value.x = offsetX;
-            mouse.value.y = offsetY;
-        }
-        for ( let i = 0; i < 10; i++) {
-            particleArray.value.push( new Particle());
-        }
+ const handleInputEvent = (event: MouseEvent | TouchEvent) => {
+    let offsetX, offsetY;
+    if ('touches' in event) {
+        const touch = event.touches[0];
+        offsetX = touch.clientX;
+        offsetY = touch.clientY;
+    } else {
+        offsetX = (event as MouseEvent).clientX;
+        offsetY = (event as MouseEvent).clientY;
+    }
+
+    if (canvasThree.value) {
+        const canvasRect = canvasThree.value.getBoundingClientRect();
+        const scaleX = canvasThree.value.width / canvasRect.width;
+        const scaleY = canvasThree.value.height / canvasRect.height;
+        const canvasX = (offsetX - canvasRect.left) * scaleX;
+        const canvasY = (offsetY - canvasRect.top) * scaleY;
+        mouse.value.x = canvasX;
+        mouse.value.y = canvasY;
+    }
+
+    for (let i = 0; i < 10; i++) {
+        particleArray.value.push(new Particle());
     }
  };
 
@@ -99,8 +110,10 @@
  animate();
 
  onMounted(() => {
-    window.addEventListener('mousedown', handleMouseEvent);
-    window.addEventListener('mousemove', handleMouseEvent);
+    window.addEventListener('mousedown', handleInputEvent);
+    window.addEventListener('mousemove', handleInputEvent);
+    window.addEventListener('touchstart', handleInputEvent);
+    window.addEventListener('touchmove', handleInputEvent);
      if (canvasThree.value) {
         canvasThree.value.width = window.innerWidth * 0.9;
         canvasThree.value.height = window.innerHeight * 0.5;
