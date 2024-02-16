@@ -20,12 +20,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.canvasContainer {
-  width: 100vw;
-  overflow-x: hidden;
-}
-
-.headerContainer {
+.canvasContainer, .headerContainer {
   width: 100vw;
   overflow-x: hidden;
 }
@@ -44,6 +39,7 @@ canvas {
   height: 50%;
   background-color: black;
   border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 a {
