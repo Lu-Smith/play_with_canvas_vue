@@ -73,7 +73,8 @@
             const distance  = Math.sqrt(dx * dx + dy * dy);
             if (distance < 100 && context) {
                 context.beginPath();
-                context.moveTo();
+                context.moveTo(particleArray.value[i].x, particleArray.value[i].y);
+                context.lineTo(particleArray.value[j].x, particleArray.value[j].y);
             }
         }
 
