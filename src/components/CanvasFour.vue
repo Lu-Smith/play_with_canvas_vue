@@ -85,7 +85,6 @@
         particleArray.value[i].draw();
         if (particleArray.value[i].size <= 0.3) {
             particleArray.value.splice(i, 1);
-            console.log(particleArray.value.length);
             i--;
         }
     }
