@@ -92,7 +92,7 @@
     window.addEventListener('mousemove', handleMouseEvent);
      if (canvasOne.value) {
         canvasOne.value.width = window.innerWidth;
-        canvasOne.value.height = window.innerHeight * 0.08;
+        canvasOne.value.height = window.innerHeight * 0.03;
         context = canvasOne.value?.getContext('2d');
     }
 
@@ -101,7 +101,7 @@
  window.addEventListener('resize', function(){
     if (canvasOne.value) {
         canvasOne.value.width = window.innerWidth;
-        canvasOne.value.height = window.innerHeight * 0.08;
+        canvasOne.value.height = window.innerHeight * 0.03;
     }
  })
  </script>
@@ -109,7 +109,7 @@
  <style scoped>
   canvas {
     width: 100%;
-    height: 8%;
-    background: #2c5d63;
+    height: 3%;
+    background: #7fa99b;
   }
  </style>
