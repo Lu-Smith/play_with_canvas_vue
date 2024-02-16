@@ -120,9 +120,7 @@
  </script>
 
 <style scoped>
-  canvas {
-    width: 90%;
-    height: 50%;
-    background-color: black;
-  }
+    canvas {
+        border: 2px solid #1f6f78;
+    }
 </style>
