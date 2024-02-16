@@ -16,7 +16,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
-  color: #fdffcd;
+  color: #7fa99b;
   font-family: "Roboto", sans-serif;
 }
 
@@ -33,6 +33,10 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+span {
+  color: #fbf2d5;
 }
 
 
