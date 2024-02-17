@@ -3,7 +3,7 @@
  </template>
  
  <script setup lang="ts">
- import { ref, onMounted, Ref } from 'vue';
+ import { ref, onMounted, Ref, watch } from 'vue';
  import { ParticleOne } from '../assets/ParticleOne';
  import { ParticleTwo } from '../assets/ParticleTwo';
  import { ParticleThree } from '../assets/ParticleThree';
@@ -85,7 +85,7 @@
                 if (distance < 100 && context) {
                     context.beginPath();
                     context.strokeStyle = particleArray.value[i].color;
-                    context.lineWidth = particleArray.value[i].size/15;
+                    context.lineWidth = particleArray.value[i].size/25;
                     context.moveTo(particleArray.value[i].x, particleArray.value[i].y);
                     context.lineTo(particleArray.value[j].x, particleArray.value[j].y);
                     context.stroke();
@@ -144,6 +144,15 @@
  })
 
  animate();
+
+ watch(() => props.selectedCanvas, (newValue) => {
+    // Reset particleArray and hue if necessary
+    particleArray.value = [];
+
+    if (newValue === 1 || newValue === 4) {
+        hue.value = 0;
+    }
+});
  </script>
 
 <style scoped>
