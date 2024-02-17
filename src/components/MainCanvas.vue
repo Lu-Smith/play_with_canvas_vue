@@ -82,12 +82,12 @@
                 const dx = particleArray.value[i].x - particleArray.value[j].x;
                 const dy = particleArray.value[i].y - particleArray.value[j].y;
                 const distance  = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100 && context) {
+                if (distance < 70 && context) {
                     context.beginPath();
                     if ('color' in particleArray.value[i]) {
                         context.strokeStyle = (particleArray.value[i] as ParticleOne).color;
                     }
-                    context.lineWidth = particleArray.value[i].size/25;
+                    context.lineWidth = particleArray.value[i].size/15;
                     context.moveTo(particleArray.value[i].x, particleArray.value[i].y);
                     context.lineTo(particleArray.value[j].x, particleArray.value[j].y);
                     context.stroke();
