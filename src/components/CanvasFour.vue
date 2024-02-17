@@ -48,9 +48,9 @@
     constructor(){
         this.x = mouse.value.x;
         this.y = mouse.value.y;
-        this.size = Math.random() * 50 + 1;
-        this.speedX = Math.random() * 3 - 1.5;
-        this.speedY = Math.random() * 3 - 1.5;
+        this.size = Math.random() * 45 + 1;
+        this.speedX = Math.random() * 6 - 1.5;
+        this.speedY = Math.random() * 6 - 1.5;
         this.color = 'hsl(' + hue.value + ', 100%, 50%)';
     };
     update() {
