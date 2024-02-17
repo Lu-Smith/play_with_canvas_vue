@@ -13,9 +13,9 @@ import Footer from './components/Footer.vue';
   </div>
   <h1>Play with <span>Canvas</span></h1>
   <button @click="chooseCanvas">1</button>
-  <button>2</button>
-  <button>3</button>
-  <button>4</button>
+  <button @click="chooseCanvas">2</button>
+  <button @click="chooseCanvas">3</button>
+  <button @click="chooseCanvas">4</button>
   <div class="canvasContainer">
     <CanvasOne />
     <CanvasTwo />
