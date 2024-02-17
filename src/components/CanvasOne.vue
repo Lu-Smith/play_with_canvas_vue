@@ -115,7 +115,7 @@
     window.addEventListener('touchmove', handleInputEvent);
      if (canvasOne.value) {
         canvasOne.value.width = window.innerWidth * 0.9;
-        canvasOne.value.height = window.innerHeight * 0.5;
+        canvasOne.value.height = window.innerHeight * 0.8;
         context = canvasOne.value?.getContext('2d');
     }
  });
@@ -123,7 +123,7 @@
  window.addEventListener('resize', function(){
     if (canvasOne.value) {
         canvasOne.value.width = window.innerWidth * 0.9;
-        canvasOne.value.height = window.innerHeight * 0.5;
+        canvasOne.value.height = window.innerHeight * 0.8;
     }
  })
 

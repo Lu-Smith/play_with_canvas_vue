@@ -115,7 +115,7 @@
     window.addEventListener('touchmove', handleInputEvent);
      if (canvasThree.value) {
         canvasThree.value.width = window.innerWidth * 0.9;
-        canvasThree.value.height = window.innerHeight * 0.5;
+        canvasThree.value.height = window.innerHeight * 0.8;
         context = canvasThree.value?.getContext('2d');
     }
 
@@ -124,7 +124,7 @@
  window.addEventListener('resize', function(){
     if (canvasThree.value) {
         canvasThree.value.width = window.innerWidth * 0.9;
-        canvasThree.value.height = window.innerHeight * 0.5;
+        canvasThree.value.height = window.innerHeight * 0.8;
     }
  })
  
