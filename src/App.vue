@@ -25,16 +25,16 @@ const chooseCanvas = (canvasNumber: number) => {
   <button @click="chooseCanvas(3)">3</button>
   <button @click="chooseCanvas(4)">4</button>
   <div class="canvasContainer">
-    <div v-if="selectedCanvas === 1">
+    <div v-if="selectedCanvas === 4">
       <CanvasOne />
     </div>
-    <div v-if="selectedCanvas === 2">
+    <div v-if="selectedCanvas === 3">
       <CanvasTwo />
     </div>
-    <div v-if="selectedCanvas === 3">
+    <div v-if="selectedCanvas === 2">
       <CanvasThree />
     </div>
-    <div v-if="selectedCanvas === 4">
+    <div v-if="selectedCanvas === 1">
       <CanvasFour />
     </div>
   </div>
