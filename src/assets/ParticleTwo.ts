@@ -1,4 +1,4 @@
-export class Particle {
+export class ParticleTwo {
     x: number;
     y: number;
     size: number;
