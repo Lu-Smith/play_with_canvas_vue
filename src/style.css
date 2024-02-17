@@ -42,7 +42,7 @@ span:hover {
 
 canvas {
   width: 90%;
-  height: 50%;
+  height: 80%;
   background-color: black;
   border-radius: 10px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
@@ -60,6 +60,20 @@ a {
 
 a:hover {
   color: #ff5722;
+}
+
+button {
+  font-size: 1.6rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+  transition: color 200ms ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff5722;
+  box-shadow: none;
 }
 
 
