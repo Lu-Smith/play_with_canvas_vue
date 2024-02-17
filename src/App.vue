@@ -12,6 +12,10 @@ import Footer from './components/Footer.vue';
     <CanvasTop />
   </div>
   <h1>Play with <span>Canvas</span></h1>
+  <button @click="chooseCanvas">1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
   <div class="canvasContainer">
     <CanvasOne />
     <CanvasTwo />
@@ -24,5 +28,3 @@ import Footer from './components/Footer.vue';
   </div>
 </template>
 
-<style scoped>
-</style>
