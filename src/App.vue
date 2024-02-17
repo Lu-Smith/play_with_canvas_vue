@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-// import CanvasOne from './components/CanvasOne.vue';
 import CanvasTop from './components/CanvasTop.vue';
-// import CanvasTwo from './components/CanvasTwo.vue';
-// import CanvasThree from './components/CanvasThree.vue';
-// import CanvasFour from './components/CanvasFour.vue';
 import Footer from './components/Footer.vue';
 import MainCanvas from './components/MainCanvas.vue';
 
@@ -27,18 +23,6 @@ const chooseCanvas = (canvasNumber: number) => {
   <button @click="chooseCanvas(3)">3</button>
   <button @click="chooseCanvas(4)">4</button>
   <div class="canvasContainer">
-    <!-- <div v-if="selectedCanvas === 2">
-      <CanvasOne />
-    </div>
-    <div v-if="selectedCanvas === 3">
-      <CanvasTwo />
-    </div>
-    <div v-if="selectedCanvas === 4">
-      <CanvasThree />
-    </div>
-    <div v-if="selectedCanvas === 1">
-      <CanvasFour />
-    </div> -->
     <div>
       <MainCanvas  :selectedCanvas="selectedCanvas"/>
     </div>

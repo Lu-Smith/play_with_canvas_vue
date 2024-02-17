@@ -9,10 +9,9 @@
  import { ParticleThree } from '../assets/ParticleThree';
  import { ParticleFour } from '../assets/ParticleFour';
 
-const props = defineProps<{ selectedCanvas: number }>();
- console.log(props.selectedCanvas);
+ const props = defineProps<{ selectedCanvas: number }>();
  type Particle = ParticleOne | ParticleTwo | ParticleThree | ParticleFour;
-    let particleArray: Ref<Particle[]>;
+ let particleArray: Ref<Particle[]>;
  let hue: Ref<number>;
 
  if (props.selectedCanvas === 1) {
