@@ -4,6 +4,7 @@
  
  <script setup lang="ts">
  import { ref, onMounted } from 'vue';
+ import { Particle } from '../assets/ParticleOne';
  
  const canvasOne = ref<HTMLCanvasElement | null>(null);
  let context: CanvasRenderingContext2D | null = null;
@@ -35,49 +36,14 @@
     }
 
     for (let i = 0; i < 10; i++) {
-        particleArray.value.push(new Particle());
+        particleArray.value.push(new Particle(mouse.value.x, mouse.value.y, hue.value));
     }
  };
-
- class Particle {
-    x: number;
-    y: number;
-    size: number;
-    speedX: number;
-    speedY: number;
-    color: string;
-
-    constructor(){
-        this.x = mouse.value.x;
-        this.y = mouse.value.y;
-        this.size = Math.random() * 12 + 1;
-        this.speedX = Math.random() * 3 - 1.5;
-        this.speedY = Math.random() * 3 - 1.5;
-        this.color = 'hsl(' + hue.value + ', 100%, 50%)';
-    };
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if ( this.size > 0.2) {
-            this.size -= 0.1
-        }
-    };
-
-    draw() {
-        //Draw particles
-        if (context) {
-            context.fillStyle = this.color;
-            context.beginPath();
-            context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            context.fill();     
-        }
-    };
- }
 
  const handleParticle = () => {
     for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
-        particleArray.value[i].draw();
+        particleArray.value[i].draw(context);
 
         for (let j = i; j < particleArray.value.length; j++ ) {
             const dx = particleArray.value[i].x - particleArray.value[j].x;
