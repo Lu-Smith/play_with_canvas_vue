@@ -4,6 +4,7 @@
  
  <script setup lang="ts">
  import { ref, onMounted } from 'vue';
+ import { Particle } from '../assets/ParticleThree';
  
  const canvasThree = ref<HTMLCanvasElement | null>(null);
  let context: CanvasRenderingContext2D | null = null;
@@ -33,63 +34,14 @@
     }
 
     for (let i = 0; i < 5; i++) {
-        particleArray.value.push(new Particle());
+        particleArray.value.push(new Particle(mouse.value.x, mouse.value.y));
     }
  };
-
- class Particle {
-    x: number;
-    y: number;
-    size: number;
-    speedX: number;
-    speedY: number;
-
-    constructor(){
-        this.x = mouse.value.x;
-        this.y = mouse.value.y;
-        this.size = Math.random() * 40 + 1;
-        this.speedX = Math.random() * 6 - 1.5;
-        this.speedY = Math.random() * 6 - 1.5;
-    };
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if ( this.size > 0.2) {
-            this.size -= 0.1
-        }
-    };
-
-    draw() {
-        //Draw particles
-        if (context) {
-            const numberOfPoints = 5;
-            const innerRadius = this.size / 2;
-            const outerRadius = this.size;
-            let rotation = Math.PI / 2 * 3
-            const angleIncrement = Math.PI / numberOfPoints;
-            
-            context.beginPath();
-            context.moveTo(this.x + Math.cos(rotation) * outerRadius, this.y + Math.sin(rotation) * outerRadius * 0.5);
-
-            for (let i = 0; i < numberOfPoints; i++) {
-                rotation += angleIncrement;
-                context.lineTo(this.x + Math.cos(rotation) * outerRadius, this.y + Math.sin(rotation) * outerRadius);
-                rotation += angleIncrement;
-                context.lineTo(this.x + Math.cos(rotation) * innerRadius, this.y + Math.sin(rotation) * innerRadius);
-            }
-            
-            context.closePath();
-            context.lineWidth = 2;
-            context.strokeStyle = '#fff';
-            context.stroke();    
-        }
-    };
- }
 
  const handleParticle = () => {
     for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
-        particleArray.value[i].draw();
+        particleArray.value[i].draw(context);
         if (particleArray.value[i].size <= 0.3) {
             particleArray.value.splice(i, 1);
             i--;
