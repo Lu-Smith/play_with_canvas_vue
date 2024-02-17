@@ -4,6 +4,7 @@
  
  <script setup lang="ts">
  import { ref, onMounted } from 'vue';
+ import { Particle } from '../assets/ParticleTwo';
  
  const canvasTwo = ref<HTMLCanvasElement | null>(null);
  let context: CanvasRenderingContext2D | null = null;
@@ -31,62 +32,14 @@
         mouse.value.x = canvasX;
         mouse.value.y = canvasY;
     }
-        particleArray.value.push(new Particle());
+        particleArray.value.push(new Particle(mouse.value.x, mouse.value.y));
     
  };
-
- class Particle {
-    x: number;
-    y: number;
-    size: number;
-    speedX: number;
-    speedY: number;
-
-    constructor(){
-        this.x = mouse.value.x;
-        this.y = mouse.value.y;
-        this.size = Math.random() * 16 + 1;
-        this.speedX = Math.random() * 3 - 1.5;
-        this.speedY = Math.random() * 3 - 1.5;
-    };
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if ( this.size > 0.2) {
-            this.size -= 0.1
-        }
-    };
-
-    draw() {
-        //Draw particles
-        if (context) {
-            context.fillStyle = '#79c2d0'; 
-            context.strokeStyle = '#fff'; 
-            context.lineWidth = 6;
-            context.beginPath();
-            context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            context.fill(); 
-            context.stroke();  
-
-            context.strokeStyle = '#ffc93c'; 
-            context.lineWidth = 4;
-            context.beginPath();
-            context.arc(this.x, this.y, this.size + 8, 0, Math.PI * 2);
-            context.stroke(); 
-
-            context.strokeStyle = '#ffc93c'; 
-            context.lineWidth = 2;
-            context.beginPath();
-            context.arc(this.x, this.y, this.size + 18, 0, Math.PI * 2);
-            context.stroke();
-        }
-    };
- }
 
  const handleParticle = () => {
     for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
-        particleArray.value[i].draw();
+        particleArray.value[i].draw(context);
         if (particleArray.value[i].size <= 0.3) {
             particleArray.value.splice(i, 1);
             i--;
