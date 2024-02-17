@@ -48,8 +48,8 @@
         this.x = mouse.value.x;
         this.y = mouse.value.y;
         this.size = Math.random() * 40 + 1;
-        this.speedX = Math.random() * 3 - 1.5;
-        this.speedY = Math.random() * 3 - 1.5;
+        this.speedX = Math.random() * 6 - 1.5;
+        this.speedY = Math.random() * 6 - 1.5;
     };
     update() {
         this.x += this.speedX;
