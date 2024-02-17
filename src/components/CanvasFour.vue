@@ -48,7 +48,7 @@
     constructor(){
         this.x = mouse.value.x;
         this.y = mouse.value.y;
-        this.size = Math.random() * 30 + 1;
+        this.size = Math.random() * 50 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.speedY = Math.random() * 3 - 1.5;
         this.color = 'hsl(' + hue.value + ', 100%, 50%)';
@@ -68,7 +68,7 @@
             context.fillRect(this.x, this.y, this.size, this.size);
 
         //stroke
-            context.strokeStyle = 'hsl(' + hue.value + ', 100%, 50%)'; 
+            context.strokeStyle = 'hsl(' + hue.value + 3 + ', 100%, 50%)'; 
             context.lineWidth = 2;
             context.strokeRect(this.x, this.y, this.size, this.size);  
         }

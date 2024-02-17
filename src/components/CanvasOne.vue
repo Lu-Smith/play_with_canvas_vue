@@ -14,6 +14,7 @@
 
  const handleInputEvent = (event: MouseEvent | TouchEvent) => {
     let offsetX, offsetY;
+    
     if ('touches' in event) {
         const touch = event.touches[0];
         offsetX = touch.clientX;

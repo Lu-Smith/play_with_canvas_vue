@@ -31,10 +31,8 @@
         mouse.value.x = canvasX;
         mouse.value.y = canvasY;
     }
-
-    for (let i = 0; i < 3; i++) {
         particleArray.value.push(new Particle());
-    }
+    
  };
 
  class Particle {
