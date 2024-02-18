@@ -19,11 +19,12 @@ body {
   color: #7fa99b;
   font-family: "Roboto", sans-serif;
   letter-spacing: 1px;
+  overflow: hidden;
 }
 
 .canvasContainer, .headerContainer {
   width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 h1 {
