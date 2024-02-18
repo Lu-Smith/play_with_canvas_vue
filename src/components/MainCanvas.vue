@@ -82,7 +82,7 @@
                 const dx = particleArray.value[i].x - particleArray.value[j].x;
                 const dy = particleArray.value[i].y - particleArray.value[j].y;
                 const distance  = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 70 && context) {
+                if (distance < 50 && context) {
                     context.beginPath();
                     if ('color' in particleArray.value[i]) {
                         context.strokeStyle = (particleArray.value[i] as ParticleOne).color;
@@ -93,11 +93,10 @@
                     context.stroke();
                 }
             }
-
             if (particleArray.value[i].size <= 0.3) {
-                particleArray.value.splice(i, 1);
-                i--;
-            }
+                    particleArray.value.splice(i, 1);
+                    i--;
+            }     
         } 
     } else {
         if (context && canvas.value) {
