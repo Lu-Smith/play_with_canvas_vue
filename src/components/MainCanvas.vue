@@ -73,6 +73,11 @@
  };
 
  const handleParticle = () => {
+    if (context && canvas.value) {
+        context.fillStyle = 'rgba(0, 0, 0, 0.2)';
+        context.fillRect(0, 0, canvas.value.width, canvas.value.height);
+        }
+
     if (props.selectedCanvas === 1 ) {
         for (let i = 0; i < particleArray.value.length; i++) {
         particleArray.value[i].update();
@@ -93,17 +98,12 @@
                     context.stroke();
                 }
             }
-            if (particleArray.value[i].size <= 0.4) {
-                    particleArray.value.splice(i, 1);
-                    i--;
-            }     
+            if (particleArray.value[i].size <= 0.5 ) {
+                particleArray.value.splice(i, 1);
+                i--;
+            }
         } 
     } else {
-        if (context && canvas.value) {
-        context.fillStyle = 'rgba(0, 0, 0, 0.2)';
-        context.fillRect(0, 0, canvas.value.width, canvas.value.height);
-        }
-
         for (let i = 0; i < particleArray.value.length; i++) {
             particleArray.value[i].update();
             particleArray.value[i].draw(context, hue.value);
