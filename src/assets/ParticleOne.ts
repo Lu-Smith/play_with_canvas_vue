@@ -9,7 +9,7 @@ export class ParticleOne {
     constructor(mouseX: number, mouseY: number, hue: number){
         this.x = mouseX;
         this.y = mouseY;
-        this.size = Math.random() * 14 + 1;
+        this.size = Math.random() * 16 + 1;
         this.speedX = Math.random() * 5 - 1.5;
         this.speedY = Math.random() * 5 - 1.5;
         this.color = 'hsl(' + hue + ', 100%, 50%)';
