@@ -9,8 +9,8 @@ export class ParticleThree {
         this.x = mouseX;
         this.y = mouseY;
         this.size = Math.random() * 40 + 1;
-        this.speedX = Math.random() * 6 - 1.5;
-        this.speedY = Math.random() * 6 - 1.5;
+        this.speedX = Math.random() * 4 - 1.5;
+        this.speedY = Math.random() * 4 - 1.5;
     }
 
     update() {
