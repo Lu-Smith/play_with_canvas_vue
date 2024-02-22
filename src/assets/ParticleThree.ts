@@ -44,6 +44,12 @@ export class ParticleThree {
             context.lineWidth = 2;
             context.strokeStyle = '#fff';
             context.stroke();    
-        }
+
+            //circle
+            context.fillStyle = '#fff'; 
+            context.beginPath();
+            context.arc(this.x, this.y, this.size/6, 0, Math.PI * 2);
+            context.fill(); 
+}
     }
 }
