@@ -106,7 +106,7 @@
                     const dx = particleArray.value[i].x - particleArray.value[j].x;
                     const dy = particleArray.value[i].y - particleArray.value[j].y;
                     const distance  = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 80 && context && distance > 20) {
+                    if (distance < 70 && context && distance > 30) {
                         context.beginPath();
                         if ('color' in particleArray.value[i]) {
                             context.strokeStyle = (particleArray.value[i] as ParticleOne).color;
