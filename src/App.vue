@@ -20,9 +20,9 @@ const chooseCanvas = (canvasNumber: number) => {
   <button @click="chooseCanvas(4)">1</button>
   <button @click="chooseCanvas(6)">2</button>
   <button @click="chooseCanvas(3)">3</button>
-  <button @click="chooseCanvas(2)">4</button>
+  <button @click="chooseCanvas(5)">4</button>
   <button @click="chooseCanvas(1)">5</button>
-  <button @click="chooseCanvas(5)">6</button>
+  <button @click="chooseCanvas(2)">6</button>
   <div class="canvasContainer">
     <div>
       <MainCanvas  :selectedCanvas="selectedCanvas"/>
