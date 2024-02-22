@@ -18,10 +18,10 @@ const chooseCanvas = (canvasNumber: number) => {
   </div>
   <h1>Play with <span>Canvas</span></h1>
   <button @click="chooseCanvas(4)">1</button>
-  <button @click="chooseCanvas(6)">2</button>
-  <button @click="chooseCanvas(3)">3</button>
-  <button @click="chooseCanvas(5)">4</button>
-  <button @click="chooseCanvas(1)">5</button>
+  <button @click="chooseCanvas(5)">2</button>
+  <button @click="chooseCanvas(1)">3</button>
+  <button @click="chooseCanvas(6)">4</button>
+  <button @click="chooseCanvas(3)">5</button>
   <button @click="chooseCanvas(2)">6</button>
   <div class="canvasContainer">
     <div>
