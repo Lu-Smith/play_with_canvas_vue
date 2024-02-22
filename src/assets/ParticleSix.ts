@@ -10,8 +10,8 @@ export class ParticleSix {
         this.x = mouseX;
         this.y = mouseY;
         this.size = Math.random() * 40 + 1;
-        this.speedX = Math.random() * 6 - 1.5;
-        this.speedY = Math.random() * 6 - 1.5;
+        this.speedX = Math.random() * 5 - 1.5;
+        this.speedY = Math.random() * 5 - 1.5;
         this.color = '#79c2d0';
     }
 
