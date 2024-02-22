@@ -30,20 +30,20 @@ export class ParticleFive {
             context.strokeStyle = '#ffcbcb'; 
             context.lineWidth = 3;
             context.beginPath();
-            context.arc(this.x, this.y, this.size + 4, 0, Math.PI);
+            context.arc(this.x, this.y, this.size + 3, 0, Math.PI);
             context.stroke(); 
 
         //half-circle stroke -top
         context.strokeStyle = '#ffcbcb'; 
         context.lineWidth = 3;
         context.beginPath();
-        context.arc(this.x + 20, this.y, this.size + 3, 10, Math.PI * 0.1);
+        context.arc(this.x + 20, this.y, this.size + 2, 10, Math.PI * 0.1);
         context.stroke(); 
 
         //circle
             context.fillStyle = '#f70776'; 
             context.beginPath();
-            context.arc(this.x, this.y, this.size/2, 0, Math.PI * 2);
+            context.arc(this.x, this.y, this.size/3, 0, Math.PI * 2);
             context.fill(); 
 
         //stroke
