@@ -75,13 +75,17 @@
             particleArray.value.push(new ParticleFour(mouse.value.x, mouse.value.y, hue.value));
         }
     } else if (props.selectedCanvas === 5) {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 2; i++) {
+        particleArray.value.push(new ParticleTwo(mouse.value.x, mouse.value.y));
+        }
+        for (let i = 0; i < 9; i++) {
             particleArray.value.push(new ParticleSix(mouse.value.x, mouse.value.y, hue.value));
-            particleArray.value.push(new ParticleTwo(mouse.value.x, mouse.value.y));
         }
     } else if (props.selectedCanvas === 6) {
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 7; i++) {
             particleArray.value.push(new ParticleThree(mouse.value.x, mouse.value.y));
+        }
+        for (let i = 0; i < 3; i++) {
             particleArray.value.push(new ParticleFive(mouse.value.x, mouse.value.y));
         }
     }
