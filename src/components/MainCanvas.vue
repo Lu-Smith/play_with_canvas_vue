@@ -10,24 +10,25 @@
  import { ParticleFour } from '../assets/ParticleFour';
  import { ParticleFive } from '../assets/ParticleFive';
  import { ParticleSix } from '../assets/ParticleSix';
+ import { ParticleSeven } from '../assets/ParticleSeven';
 
  const props = defineProps<{ selectedCanvas: number }>();
- type Particle = ParticleOne | ParticleTwo | ParticleThree | ParticleFour | ParticleFive | ParticleSix;
+ type Particle = ParticleOne | ParticleTwo | ParticleThree | ParticleFour | ParticleFive | ParticleSix | ParticleSeven;
  let particleArray: Ref<Particle[]>;
  let hue: Ref<number>;
 
  if (props.selectedCanvas === 1) {
     particleArray = ref<ParticleOne[]>([]);
  } else if (props.selectedCanvas === 2) {
-    particleArray = ref<ParticleTwo[]>([]);
+    particleArray = ref<ParticleSeven[]>([]);
  } else if (props.selectedCanvas === 3) {
-    particleArray = ref<ParticleThree[]>([]);
+    particleArray = ref<ParticleFive[]>([]);
  } else if (props.selectedCanvas === 4) {
     particleArray = ref<ParticleFour[]>([]);
  } else if (props.selectedCanvas === 5) {
     particleArray = ref<ParticleSix[] | ParticleTwo[]>([]);
  } else if (props.selectedCanvas === 6) {
-    particleArray = ref<ParticleFive[] | ParticleThree[] >([]);
+    particleArray = ref<ParticleThree[] >([]);
  } 
  
  const canvas = ref<HTMLCanvasElement | null>(null);
@@ -65,10 +66,10 @@
             particleArray.value.push(new ParticleOne(mouse.value.x, mouse.value.y, hue.value));
         }
     } else if (props.selectedCanvas === 2) {
-        particleArray.value.push(new ParticleTwo(mouse.value.x, mouse.value.y));
+        particleArray.value.push(new ParticleSeven(mouse.value.x, mouse.value.y));
     } else if (props.selectedCanvas === 3) {
-        for (let i = 0; i < 5; i++) {
-            particleArray.value.push(new ParticleThree(mouse.value.x, mouse.value.y));
+        for (let i = 0; i < 3; i++) {
+            particleArray.value.push(new ParticleFive(mouse.value.x, mouse.value.y));
         }
     } else if (props.selectedCanvas === 4) {
         for (let i = 0; i < 10; i++) {
@@ -82,11 +83,8 @@
             particleArray.value.push(new ParticleSix(mouse.value.x, mouse.value.y, hue.value));
         }
     } else if (props.selectedCanvas === 6) {
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 5; i++) {
             particleArray.value.push(new ParticleThree(mouse.value.x, mouse.value.y));
-        }
-        for (let i = 0; i < 3; i++) {
-            particleArray.value.push(new ParticleFive(mouse.value.x, mouse.value.y));
         }
     }
     

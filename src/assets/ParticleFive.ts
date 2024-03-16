@@ -34,7 +34,7 @@ export class ParticleFive {
             context.stroke(); 
 
         //half-circle stroke -top
-        context.strokeStyle = '#ffcbcb'; 
+        context.strokeStyle = '#ff9c6d'; 
         context.lineWidth = 3;
         context.beginPath();
         context.arc(this.x + 20, this.y, this.size + 2, 10, Math.PI * 0.1);
@@ -47,9 +47,9 @@ export class ParticleFive {
             context.fill(); 
 
         //stroke
-            context.strokeStyle = '#407088'; 
+            context.strokeStyle = '#ffebbb'; 
             context.lineWidth = 4;
-            context.strokeRect(this.x, this.y, this.size, this.size);  
+            context.strokeRect(this.x * 0.9, this.y * 0.9, this.size, this.size);  
         }   
     }
 }

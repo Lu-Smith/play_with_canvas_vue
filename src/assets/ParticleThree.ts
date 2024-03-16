@@ -50,6 +50,12 @@ export class ParticleThree {
             context.beginPath();
             context.arc(this.x, this.y, this.size/6, 0, Math.PI * 2);
             context.fill(); 
+
+            //circle
+            context.strokeStyle = '#fff'; 
+            context.beginPath();
+            context.arc(this.x, this.y, this.size/3, 0, Math.PI * 2);
+            context.stroke(); 
 }
     }
 }
